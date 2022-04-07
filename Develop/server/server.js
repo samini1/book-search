@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-// const routes = require('./routes');
+// const routes = require('./routes'); change from restful 
 const { ApolloServer } = require('apollo-server-express')
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3001;
 const startServer = async () => {
   const server = new ApolloServer({
     typeDefs,
-    resolvers    
+    resolvers,
+    context: authMiddleware    
   });
 
   await server.start();

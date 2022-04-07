@@ -31,7 +31,7 @@ const typeDefs = gql`
       link: String
   }
   type Auth {
-      token: String
+      token: ID!
       user: User
   }
  type Mutation {
